@@ -1,11 +1,12 @@
-// 최솟값
+// 최솟값;
 // function solution(a, b, c) {
 //   let answer;
 //   if (a < b) {
+//     // 값 비교 , 할당
 //     answer = a;
 //   }
 //   answer = b;
-//   if (answer < c) answer = answer;
+//   if (answer < c) answer = answer; // 값 비교 , 할당
 //   {
 //     answer = c; //
 //   }
@@ -13,8 +14,6 @@
 //   return answer;
 // }
 // console.log(solution(2, 5, 1));
-//
-//
 
 // 세변의 길이 합 삼각형이 가능한지 ?
 // function solution(a, b, c) {
@@ -57,7 +56,7 @@
 // const arr = [5, 3, 6, 7, 8, 11, 4, 1];
 // function solution(arr) {
 //   let answer,
-//     min = arr[0]; // 배열의 첫번째 인덱스를 min에 넣어줌
+//     min = arr[0]; // 배열의 첫번째 인덱스를 min에 넣어줌 또는 Number.안전한 최댓값
 //   for (let i = 1; i < arr.length; i++) {
 //     // 배열 순회
 //     if (arr[i] < min) min = arr[i]; // 순회하면서 min 값이랑 비교 조건 충족 시 arr[i] 할당
@@ -116,17 +115,17 @@
 //       // 값이 2개가 나와서 걔네들을 제거해야하니까 중첩포문을 돌아서 변수를 2개만듦
 //       if (sum - (arr[i] + arr[j]) === 100) {
 //         // 총합과 걔넬 빼고 100 이 나온 친구들을 제거해줌
-//         arr.splice(j, 1);
+//         arr.splice(j, 1); // j번째 값 1개를 제거해라. 근데 j가 i보다 뒤에 있기때문에 J먼저 제거를 해서 순서가 달라지지않게 해줌
 //         arr.splice(i, 1);
 //       }
 //     }
 //   }
 //   return answer;
 // }
-
 // arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 // console.log(solution(arr));
 // 배열의 인덱스 - 2 , 총합 100인 친구들 찾기
+//
 //
 //
 
@@ -303,12 +302,12 @@
 // let str = "study";
 // console.log(solution(str));
 //
-//
-//// function solution(s) {
+// 중복문자 제거
+// function solution(s) {
 //   let answer = "";
 //   for (let i = 0; i < s.length; i++) {
 //     // 인덱스로 탐색해야함 ,
-//     // console.log(s[i], i, s.indexOf(s[i]));
+//     // console.log(s[i], i, s.indexOf(s[i])); 기존 인덱스의 값 , 인덱스 , 처음 인덱스의 값
 //     if (s.indexOf(s[i]) === i) {
 //       // 최초의 본인의 인덱스 위치 === 본래 자기 위치를 비교 true면 answer에 추가
 //       // 예 ) i = 0 = k , s.indexOf(s[i]) , i = 0이니까 즉 k임 === i(0 ===k) 니까
@@ -341,3 +340,111 @@
 //   return answer; // 그렇게 쭉 돌다가 while false 뜨면 여태 answer  리턴
 // }
 // console.log(solution("keskkest"));
+
+// 중복단어제거
+
+// function solution(s) {
+//   let answer = [];
+//   answer = s.filter((v, i) => {
+//     // 필터 첫번째 인자 (콜백함수 내부임) 여기서 false가 나온 값을 거르고 true만 반환을 해주는거임
+//     //
+//     // 1 .
+//     // if (s.indexOf(v) === i) return true;
+//     // 실행 결과 자체가
+//     // s.indexOf("good") = 0 === i(0) = true
+//     // s.indexOf("time") = 1 === i(1) = true
+//     // s.indexOf("good") = 0 === i(2) = fasle
+//     // s.indexOf("time") = 1 === i(3) = fasle
+//     // s.indexOf("student") = 4 === i(4) = true
+//     //
+//     //
+//     // 2.
+//     // return s.indexOf(v) === i; // 이 조건식의 결과가 t / f 니까 결과대로 filter로 반환
+//   });
+
+//   return answer; // true만 모아서 새로운 배열을 반환하니 ["good","time","student"] 기존 배열 유지
+// }
+// let str = ["good", "time", "good", "time", "student"];
+// console.log(solution(str));
+
+// 큰수 출력하기
+// function solution(arr) {
+//   let answer = [];
+//   answer.push(arr[0]); // 일단 첫번째 수는 무조건 넣어줘야하니 푸시를 정적으로 해준다
+//   for (let i = 1; i < arr.length; i++) { // 0번째는 넣었으니 1번부터 순찰
+//     if (arr[i] > arr[i - 1]) answer.push(arr[i]);
+// 만약 arr[i] 가 arr[i-1] 보다 크다면 push해서 추가 아니면 그냥 넘어가기
+//   }
+
+//   return answer;
+// }
+
+// let arr = [7, 3, 9, 5, 6, 12];
+// console.log(solution(arr));
+
+// 키 큰 친구 보이기
+// function solution(arr) {
+//   let answer = 1, // 처음엔 무조건 보이니까 1 넣고 시작
+//     max = arr[0]; // 초기 친구가 가장 큰 친구
+//   for (let i = 1; i < arr.length; i++) { // 순찰
+//     if (arr[i] > max) { // 배열 돌면서 비교 트루시 ++ , 맥스 갱신
+//       answer++;
+//       max = arr[i];
+//     }
+//   }
+//   return answer;
+// }
+
+// let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+// console.log(solution(arr));
+
+// 실패코드
+// function solution(arr) {
+//   let answer = [];
+//   answer.push(arr[0]);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < arr[i + 1]) answer.push(arr[i + 1]);
+//   }
+
+//   return answer;
+// }
+
+// let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+// console.log(solution(arr));
+
+// 가위바위보
+// function solution(a, b) {
+//   let answer = "";
+//   for (let i = 0; i < a.length; i++) {
+//     if (a[i] === b[i]) answer += "D" + ""; // 비기는 경우 한번
+//     else if (a[i] === 1 && b[i] === 3)
+//       answer +=
+//         "A" + ""; // a가 이기는 경우 총 3가진데 다양하게 이기는 = else if
+//     else if (a[i] === 2 && b[i] === 1) answer += "A" + "";
+//     else if (a[i] === 3 && b[i] === 2) answer += "A" + "";
+//     else answer += "B" + ""; // b가 이기는 새로운 상황 else ,
+//   }
+//   return answer;
+// }
+// let a = [2, 3, 3, 1, 3];
+
+// let b = [1, 1, 2, 2, 3];
+// console.log(solution(a, b));
+// 1 가위 2 바위 3 보
+
+// 점수 계산 연속 정답 시 가산 점
+// function solution(s) {
+//   let answer = 0;
+//   cnt = 0;
+//   for (let x of s) {
+//     if (x === 1) {
+//       cnt++; // cnt = cnt(0) + 1; 알아서 연속 1이 누적되는거임
+//       answer += cnt; // 그리고 그거 할당
+//     } else cnt = 0; // 틀ㄹ리면 0으로 초기화
+//   }
+
+//   return answer;
+// }
+
+// let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+// console.log(solution(arr));
