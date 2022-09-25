@@ -2,7 +2,7 @@
 // function solution(a, b, c) {
 //   let answer;
 //   if (a < b) {
-//     // 값 비교 , 할당
+//     // 값 비교 ,  할당
 //     answer = a;
 //   }
 //   answer = b;
@@ -398,20 +398,6 @@
 // let arr = [130, 135, 148, 140, 145, 150, 150, 153];
 // console.log(solution(arr));
 
-// 실패코드
-// function solution(arr) {
-//   let answer = [];
-//   answer.push(arr[0]);
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] < arr[i + 1]) answer.push(arr[i + 1]);
-//   }
-
-//   return answer;
-// }
-
-// let arr = [130, 135, 148, 140, 145, 150, 150, 153];
-// console.log(solution(arr));
-
 // 가위바위보
 // function solution(a, b) {
 //   let answer = "";
@@ -447,4 +433,59 @@
 // }
 
 // let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+// console.log(solution(arr));
+
+// 이중 포문 돌때 j가 먼저 돌고 값을 어떤식으로 전해주는지를 좀 볼 필요가 있음
+// // 그리고 등수로 따진다고 하니까 처음 1로 전부 다 초기화를 시켜주는 발상 + 이후에 1씩 늘리면서 등수정하기
+// function solution(arr) {
+//   let n = arr.length;
+//   let answer = Array.from({ length: n }, () => 1); // 일차원 배열 1로 초기화
+//   for (let i = 0; i < n; i++) {
+//     // i = 0 부터 순회
+//     for (let j = 0; j < n; j++) {
+//       // j가 i보다 먼저 다 돌고 끝남 i의 인덱스 처음 0 값을 정해주고 끝남
+//       // 87이 0번째니까 다 돌아서 4등으로 마무리
+//       // 다음 89 1번째 다 돌고 3등으로 마무리 이런식으로 쭉쭉감
+//       // 결국 점수가 같고 76점이 돌면 전부 밀려나니까 5등이 되는거임
+//       if (arr[j] > arr[i]) answer[i]++; // 비교해서 밀릴때마다 1등씩 밀리는 로직
+//     }
+//   }
+
+//   return answer;
+// }
+
+// let arr = [87, 89, 92, 100, 76];
+// console.log(solution(arr));
+
+// 격자판 최대합
+// function solution(arr) {
+//   let answer = Number.MIN_SAFE_INTEGER;
+//   let n = arr.length; // 5
+//   let sum1 = (sum2 = 0); // 스코프때문에 중복 선언
+//   //arr[행][열]
+//   for (let i = 0; i < n; i++) {
+//     sum1 = sum2 = 0; // j가 다시 돌기전에 열과 행 더한 값을 초기화 시켜줌
+//     for (let j = 0; j < n; j++) {
+//       sum1 += arr[i][j]; // 행이 더해짐 ? i가 0인채로 j가 열을 돌면서 더해줌
+//       sum2 += arr[j][i]; // 열이 더해짐 ? i가 0인채로 j가 행을 돌면서 더해줌
+//       // 어차피 이중포문이면 i처음 돌고 j가 쭉 도니까 행 , 열 을 구하려면 인덱스 위치를 바꿔주면 되는거임
+//     }
+//     answer = Math.max(answer, sum1, sum2); // 열과 행 전부 구함 이 중 가장 큰 수가 할당되는거임
+//   }
+//   sum1 = sum2 = 0; // 위에서 계산한 들고 있는 값 초기화
+//   for (let i = 0; i < n; i++) {
+//     sum1 += arr[i][i]; // 열과 행을 전부 i로 맞추면 대각선의 합을 구함. 인덱스 번호대로 따라가니까
+//     sum2 += arr[i][n - i - 1]; // [0][4], [1][3] 이런식으로 반대쪽 대각선도 구할 수 있음
+//   }
+//   answer = Math.max(answer, sum1, sum2); // 행 + 열의 최댓값이 answer에 들어간 상황에서 자동으로 대각선의 합이랑 비교가 됨
+//   return answer;
+// }
+
+// let arr = [
+//   [10, 13, 10, 12, 15],
+//   [12, 39, 30, 23, 11],
+//   [11, 25, 50, 53, 15],
+//   [19, 27, 29, 37, 27],
+//   [19, 13, 30, 13, 19],
+// ];
 // console.log(solution(arr));
