@@ -2,8 +2,11 @@
 function solution(arr) {
   let answer = 0;
   let n = arr.length;
+
   let dx = [-1, 0, 1, 0]; // x축y축에 맞게 변수 쓴게 아님 지금, 12시 , 3시 , 6시 , 9시 방향임 각각
+
   let dy = [0, 1, 0, -1]; // 현재 위치의 위를 보고싶으면 x축의 -1 ,
+
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
       let flag = 1; // 1 = true
@@ -35,12 +38,3 @@ let arr = [
   [8, 7, 3, 5, 2],
 ];
 console.log(solution(arr));
-
-// function solution(arr) {
-//   let answer;
-
-//   return answer;
-// }
-
-// let arr = [];
-// console.log(solution(arr));
