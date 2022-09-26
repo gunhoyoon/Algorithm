@@ -490,3 +490,123 @@
 //   [19, 13, 30, 13, 19],
 // ];
 // console.log(solution(arr));
+
+// 봉우리 // 네 방향 탐색
+// function solution(arr) {
+//   let answer = 0;
+//   let n = arr.length;
+
+//   let dx = [-1, 0, 1, 0]; // x축y축에 맞게 변수 쓴게 아님 지금, 12시 , 3시 , 6시 , 9시 방향임 각각
+
+//   let dy = [0, 1, 0, -1]; // 현재 위치의 위를 보고싶으면 x축의 -1 ,
+
+//   for (let i = 0; i < n; i++) {
+//     // i < n , n = arr.length
+//     for (let j = 0; j < n; j++) {
+//       let flag = 1; // 1 = true
+//       for (let k = 0; k < 4; k++) {
+//         // k  < 4  4 = dy ,dx의 index
+//         let nx = i + dx[k]; // 방향 탐색하는 행 좌표 // 처음 i 0 고정 k 만 0 1 2 3 증가
+//         let ny = j + dy[k]; // 방향 탐색하는 열 좌표 // 처음 j 고정 k만 0 1 2 3 증가
+//         // k 포문 돌면서 dx, dy의 인덱스 번호 각각 입히는거,
+//         // 4 방향 탐색하니까 인덱스 0 부터 3까지
+//         if (nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] > arr[i][j]) {
+//           // 상하좌우 순회한 그 값을 기존값과 비교 했을 때 같거나 큰게 있으면 안됨
+//           // if문 false 나왔으면 포문을 더 돌 필요가 없음
+//           // 처음 0 , 0 일때는 인덱스가 -1이 되어버림 그러면 안되니까,
+//           // 처음 nx ny가 1보다 작은 경우를 배제시켜놓는 if문을 시작함
+//           flag = 0; // 0 = false 이후 break; 아닌게  순회한 값이 기존값과 비교했을 때 작거나 같을때
+//           break;
+//         }
+//       }
+//       if (flag) answer++;
+//     }
+//   }
+
+//   return answer;
+// }
+
+// let arr = [
+//   [5, 3, 7, 2, 3],
+//   [3, 7, 1, 6, 1],
+//   [7, 2, 5, 3, 4],
+//   [4, 3, 6, 4, 1],
+//   [8, 7, 3, 5, 2],
+// ];
+// console.log(solution(arr));
+
+//
+// // 회문 문자열 앞으로 읽으나 뒤로 읽으나 똑같을 때 회문 문자열이라고 함 // 대소문자 구분안함
+// // 1번 풀이
+// function solution(n) {
+//   let answer = "No";
+//   let lowN = n.toLowerCase();
+//   let reverseN = n.split("").reverse().join("").toLowerCase();
+//   //   split("").reverse().join(""); 전체 문자열 뒤집기
+//   // 스트링일때 split("") 으로 자르면 하나하나 잘린 배열로 만들어지고, 그 배열을 뒤집고 , join("") 으로 다시 이어붙임
+//   if (lowN === reverseN) answer = "YES";
+
+//   return answer;
+// }
+// let str = "asoOOOOOOoOosa";
+// console.log(solution(str));
+
+// // 2번 풀이
+// let answer = "YES";
+// s = s.toLowerCase();
+// let len = s.length;
+// for (let i = 0; i < Math.floor(len / 2); i++) {
+//   // Math.floor(len / 2) 4/2 = 2, 5/2 = 2
+//   if (s[i] !== s[len - i - 1]) return "No"; //  s[0] !== s[3] return "No"
+//   // 맨 앞자리랑 맨 끝자리를 비교해서 다를 시 true인데 그러면 "No"를 리턴하겠다;.
+// }
+
+//
+
+//
+// 팰린드롬 = 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라고 함
+// function solution(s) {
+//   let answer = "YES";
+//   s = s.toLowerCase().replace(/[^a-z]/g, "");
+//   // 정규식 표현 /[^a-z]/g , ^ = 부정임  a - z가 ^(아닌 것들)/g(글로벌 적용) 찾아서 , " " 빈 문자열로 다 바꿔줄거임
+//   if (s.split("").reverse().join("") !== s) return "No";
+//   // 저렇게 반대로 한 친구들이랑 기존의 i랑 같지 않다면 true =  "No" ,  같다면 기존 answer = "YES"
+
+//   return answer;
+// }
+// let str = "found7 , time ; study;  Yduts; emit, 7Dnuof";
+// console.log(solution(str));
+
+// replace(/[^a-z]/g); // 소문자 a ~ z 외에 다 제거해라
+
+//
+//
+// 문자열 + 숫자 = 숫자만 추출 , 정수로
+// 풀이 1
+// function solution(s) {
+//   let answer = "";
+//   s = s.toLowerCase().replace(/[a-z]/g, "");
+//   // 로우로 소문자로 통일하고 , 정규식 표현 /[a-z]/g , a - z인 애들 /g(글로벌 적용) 찾아서 , " " 빈 문자열로 다 바꿔줄거임)
+//   answer = parseInt(s);
+//   return answer;
+// }
+// let str = "g0en2T0s8eSoft";
+// console.log(solution(str));
+
+// Number.parseInt()	문자열을 파싱하여, 문자열에 포함된 숫자 부분을 정수 형태로 반환함.
+
+// 풀이 2
+// function solution(s) {
+//   let answer = "";
+//   for (let x of s) {
+//     // 문자열 순회
+//     if (!isNaN(x)) answer += x;
+//     // 숫자가 아닌게 아니냐? = 숫자가 맞냐? 맞으면 answer에 추가시켜주장
+//     // 앞자리에 0 이 있으니까 parseInt에 넣어서 정수로 만들어주자
+//   }
+//   return parseInt(answer);
+// }
+// let str = "g0en2T0s8eSoft";
+// console.log(solution(str));
+
+// 문자열 + 숫자 조합중 문자열이 다 필요가 없는 상황이라면 대소문자 통일 시키고 한번에 날려도 좋은듯 replace(/[a-z]/g, "")
