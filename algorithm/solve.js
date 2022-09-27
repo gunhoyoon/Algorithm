@@ -29,8 +29,6 @@
 // console.log(solution(6, 7, 11));
 // 삼각형 특성상 가장 긴 변 길이 < 나머지 두 변의 합
 // 어떤 변이 가장 큰지 알 수 없으므로 세변의 합 , 최댓값 구한 다음  세변의 합 - 최댓값 <= 최댓값 이라면 no 아니면 yes
-//
-//
 
 // 학생 수 연필 총 몇다스가 필요한지 ?
 // function solution(n) {
@@ -39,8 +37,6 @@
 // }
 // console.log(solution(128));
 // n / 12 하면 나오는 몫 + 나머지 를 무조건 올림(ceil) 해서 answer에 할당
-//
-//
 
 // 1부터 입력 받은 수 까지의 총 합 ?
 // function solution(n) {
@@ -51,7 +47,6 @@
 //         return answer;
 //       }
 //       console.log(solution(100));
-//
 
 // const arr = [5, 3, 6, 7, 8, 11, 4, 1];
 // function solution(arr) {
@@ -67,8 +62,6 @@
 // console.log(solution(arr));
 //   최솟값 구하기. min 이라는 변수 안에 배열의 첫번째 인덱스를 넣고 , 포문에서 인덱스를 1씩 증가시킴, 그 배열의 길이까지 진행
 //    if문 안에서 1씩 증가한 배열의 인덱스 값과 현재 min 비교해서 answer = min 할당
-//
-//
 
 // 배열에서 홀수 찾고 그 합을 더한거 , 그 홀수중 가장 작은거
 // const arr = [12, 77, 38, 41, 53, 92, 85];
@@ -125,9 +118,6 @@
 // arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 // console.log(solution(arr));
 // 배열의 인덱스 - 2 , 총합 100인 친구들 찾기
-//
-//
-//
 
 // 문자열 중 일부 "#" 로 바꾸기
 // 1.
@@ -153,8 +143,6 @@
 //   return answer; // replace(/A, "#") 그냥 이렇게 쓰면 첫번째 A만 찾아 바꾸고 끝냄, 전역적으로 하려면 뒤에 g 붙여줘여함
 // }
 // console.log(solution(str));
-//
-//
 
 // 문자열 중 문자가 몇갠지 ?
 
@@ -178,8 +166,6 @@
 // }
 // let str = "COMPUTERPROGRAMMING";
 // console.log(solution(str, "R"));
-//
-//
 
 // 문자열 중 대문자 갯수 찾기
 // function solution(s) {
@@ -205,8 +191,6 @@
 //     if (num >= 65 && num <= 90) answer++; // x의 아스키코드 즉 이 코드로 대소문자 구분가능. 65~90 이내 시 answer++;
 //   }
 // }
-//
-//
 
 // 대문자로 통일하기
 // function solution(s) {
@@ -245,11 +229,7 @@
 // }
 // let str = "itisTimeToStudy";
 // console.log(solution(str));
-//
-//
 
-//
-//
 // 대소문자 변환
 // function solution(s) {
 //   let answer = "";
@@ -261,10 +241,8 @@
 //   return answer;
 // }
 // console.log(solution("StuDY"));
-//
-//
 
-//가장 긴 문자열 출력
+// 가장 긴 문자열 출력
 
 // function solution(s) {
 //   let answer = "";
@@ -281,8 +259,7 @@
 // }
 // let str = ["teacher", "time", "student", "beautiful", "good"];
 // console.log(solution(str));
-//
-//
+
 // 가운데 문자 뽑아내기
 // function solution(s) {
 //   let answer = "";
@@ -301,7 +278,7 @@
 // }
 // let str = "study";
 // console.log(solution(str));
-//
+
 // 중복문자 제거
 // function solution(s) {
 //   let answer = "";
@@ -325,8 +302,6 @@
 // 인자로 넣은 "k" 라는 친구를 찾아라 str안에서 .
 // 인자 하나만 넣어주면 가장 먼저 찾은 인덱스를 반환함 ex) 0
 // str.indexOf("k" , 1) 이라함은 1번째 인덱스부터 k를 찾아서 인덱스 반환 후 끝 리턴값이 뭔지를 아는게. 일단 중요
-//
-//
 
 // 추가로 중복 문자 갯수 찾기
 // function solution(s) {
@@ -535,7 +510,6 @@
 // ];
 // console.log(solution(arr));
 
-//
 // // 회문 문자열 앞으로 읽으나 뒤로 읽으나 똑같을 때 회문 문자열이라고 함 // 대소문자 구분안함
 // // 1번 풀이
 // function solution(n) {
@@ -561,9 +535,6 @@
 //   // 맨 앞자리랑 맨 끝자리를 비교해서 다를 시 true인데 그러면 "No"를 리턴하겠다;.
 // }
 
-//
-
-//
 // 팰린드롬 = 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라고 함
 // function solution(s) {
 //   let answer = "YES";
@@ -579,8 +550,6 @@
 
 // replace(/[^a-z]/g); // 소문자 a ~ z 외에 다 제거해라
 
-//
-//
 // 문자열 + 숫자 = 숫자만 추출 , 정수로
 // 풀이 1
 // function solution(s) {
@@ -610,3 +579,134 @@
 // console.log(solution(str));
 
 // 문자열 + 숫자 조합중 문자열이 다 필요가 없는 상황이라면 대소문자 통일 시키고 한번에 날려도 좋은듯 replace(/[a-z]/g, "")
+
+//
+// // 문자 최단 거리
+// function solution(s, t) {
+//   let answer = []; // 문자열 중 문자 t와의 최소 거리를 담아둘 빈 배열
+//   let p = 1000;
+//   for (let x of s) {
+//     // 순회
+//     if (x === t) {
+//       p = 0; // 같다면 0 푸시
+//       answer.push(p);
+//     } else {
+//       p++; // 다르다면 p ++
+//       answer.push(p); // e를 한번이라도 만나게 되면  p = 0
+//     }
+//   }
+//   p = 1000; // p 초기화
+//   for (let i = s.length - 1; i >= 0; i--) {
+//     // 10번째 인덱스까지 순회 , 1씩 감소하면서 역으로 돌림
+//     if (s[i] === t)
+//       p = 0; // 위에서 이미 0은 푸시를 다 해줬기때문에 여기선 푸시 안해줌
+//     else {
+//       p++;
+//       answer[i] = Math.min(answer[i], p); // answer[i] = 기존에 순차적으로 구했던 answer값
+//       // p = 여기서 구하고 있는 값  , 둘 중 작은 거.
+//     }
+//   }
+//   return answer;
+// }
+// let str = "teachermode";
+// console.log(solution(str, "e"));
+
+//
+//두번째 인자로 받는 e를 저 문자열 각각의 문자들이 e랑 위치 차이가 얼마 나는지
+// 제자리면 0 자리 수 대로 1 , 2  출력되게 해야됨
+
+// 문자열을 순서대로 탐색해서 중간에 껴있는 문자 e와 나머지 문자의 최소거리를 구하는 문제인데,
+// 맨 앞부터 순차적으로 돌아갔을 때 중간에 껴있는 e가 나오기 전까지 기준이 처음 나온 e이므로 자연스레 거리가 멀어질 수 밖에 없다.
+// 그러므로 뒤부터 인덱스를 탐색하는 로직도 하나 만들어
+// 앞으로 탐색하는 1번 배열 , 뒤로 탐색하는 2번 배열 을 비교해서 최솟값을 그 자리마다 집어넣어주면 된다.
+
+// 실패코드
+// function solution(s, t) {
+//   let answer = [];
+//   let answerZ = [];
+//   let reverseS = s.split("").reverse().join("");
+//   let p = 1000;
+//   console.log(reverseS);
+//   for (let x of s) {
+//     if (x === t) {
+//       p = 0;
+//       answer.push(p);
+//     } else {
+//       p++;
+//       answer.push(p);
+//     }
+//   }
+//   for (let z of reverseS) {
+//     if (z === t) {
+//       p = 0;
+//       answerZ.push(p);
+//     } else {
+//       p++;
+//       answerZ.push(p);
+//     }
+//   }
+
+//   return answer;
+// }
+// let str = "teachermode";
+
+// console.log(solution(str, "e"));
+
+// 처음 했던 생각은 기존 배열 탐색해서 answer에 푸시한 배열 하나랑, 뒤집은 리버스 배열 하나 만들어서,
+// 인덱스 위치값대로 비교해서 작은걸 answer에 최종 할당하려 했으나, 생각대로 구현하기에 실패했음
+
+//
+//
+//// 반복 문자열 압축
+// function solution(s) {
+//   let answer = ""; // 여기에 담을거임
+//   let cnt = 1; // 자기자신은 항상 있으니까 1로 초기화를 해야함
+//   s = s + ""; // 스트링으로 변한 숫자가 들어갈 빈 공간
+//   for (let i = 0; i < s.length - 1; i++) {
+//     // 빈 공간 전까지 탐색해야하니 lenghth -1;
+//     if (s[i] === s[i + 1]) cnt++;
+//     else {
+//       answer += s[i]; // false 시 다른 문자열이니까 기존 문자열 할당
+//       if (cnt > 1) answer += String(cnt); // 반복횟수 1은 안치니까 , 1보다 클때 스트링으로 만들어서 붙여줌
+//       cnt = 1; // 붙이고나면 다시 1로 초기화
+//     }
+//   }
+//   return answer;
+// }
+// let str = "KKHSSSSSSSE";
+// console.log(solution(str));
+
+//
+//// // 자리수의 합 , 동일 시 원래 숫자 중 큰 숫자
+// function solution(arr) {
+//   let answer,
+//     max = Number.MIN_SAFE_INTEGER;
+//   for (let x of arr) {
+//     // 짜르기 1
+//     // let sum = x
+//     //   .toString() // 스플릿을 위해 바꿔주고
+//     //   .split("") // 다 짤라주고
+//     //   .reduce((a, b) => a + Number(b), 0); // 각자리 더하는데 스트링으로 더해지니까 넘버로 더해줌
+
+//     // 짜르기 2
+//     // let sum = 0,
+//     //   tmp = x; // 여기서 직접 x를 변형하지말고 , tmp 으로 하나 더 만들어둠
+//     // while (tmp) {
+//     //   sum += tmp % 10; // 나머지의 값이 sum에 들어가게 될거임 , tmp의 값이 없을때까지 돌거임
+//     //   tmp = Math.floor(tmp / 10); // 128의 경우, tmp / 10 의 나머지가 8 , 2 , 1 순으로 나옴
+//     // }
+
+//     if (sum > max) {
+//       // 위에서 만들어낸 각 sum을 가지고 max랑 비교해서 더 큰 수를 max에 할당함 .
+//       max = sum;
+//       answer = x; // x는 기존 x임 , 128 / 각 자리 수를 더해서 크다면 그 원본 x를 넣어줘야하기 떄문에 쓰는거임
+//     } else if (sum === max) {
+//       // 만약 둘이 합이 같다면 원본을 비교해서 더 큰걸 할당
+//       if (x > answer) answer = x; //
+//     }
+//   }
+//   return answer;
+// }
+
+// let arr = [128, 460, 603, 40, 521, 137, 123];
+// console.log(solution(arr));
