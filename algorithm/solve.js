@@ -1,4 +1,4 @@
-// 최솟값;
+// // 최솟값;
 // function solution(a, b, c) {
 //   let answer;
 //   if (a < b) {
@@ -580,7 +580,6 @@
 
 // 문자열 + 숫자 조합중 문자열이 다 필요가 없는 상황이라면 대소문자 통일 시키고 한번에 날려도 좋은듯 replace(/[a-z]/g, "")
 
-//
 // // 문자 최단 거리
 // function solution(s, t) {
 //   let answer = []; // 문자열 중 문자 t와의 최소 거리를 담아둘 빈 배열
@@ -611,8 +610,7 @@
 // let str = "teachermode";
 // console.log(solution(str, "e"));
 
-//
-//두번째 인자로 받는 e를 저 문자열 각각의 문자들이 e랑 위치 차이가 얼마 나는지
+// 두번째 인자로 받는 e를 저 문자열 각각의 문자들이 e랑 위치 차이가 얼마 나는지
 // 제자리면 0 자리 수 대로 1 , 2  출력되게 해야됨
 
 // 문자열을 순서대로 탐색해서 중간에 껴있는 문자 e와 나머지 문자의 최소거리를 구하는 문제인데,
@@ -655,16 +653,15 @@
 // 처음 했던 생각은 기존 배열 탐색해서 answer에 푸시한 배열 하나랑, 뒤집은 리버스 배열 하나 만들어서,
 // 인덱스 위치값대로 비교해서 작은걸 answer에 최종 할당하려 했으나, 생각대로 구현하기에 실패했음
 
-//
-//
-//// 반복 문자열 압축
+// 반복 문자열 압축
 // function solution(s) {
 //   let answer = ""; // 여기에 담을거임
 //   let cnt = 1; // 자기자신은 항상 있으니까 1로 초기화를 해야함
 //   s = s + ""; // 스트링으로 변한 숫자가 들어갈 빈 공간
 //   for (let i = 0; i < s.length - 1; i++) {
+//     // 인덱스 탐색 = for문
 //     // 빈 공간 전까지 탐색해야하니 lenghth -1;
-//     if (s[i] === s[i + 1]) cnt++;
+//     if (s[i] === s[i + 1]) cnt++; // 현재와 다음이 같다면 cnt++
 //     else {
 //       answer += s[i]; // false 시 다른 문자열이니까 기존 문자열 할당
 //       if (cnt > 1) answer += String(cnt); // 반복횟수 1은 안치니까 , 1보다 클때 스트링으로 만들어서 붙여줌
@@ -676,17 +673,16 @@
 // let str = "KKHSSSSSSSE";
 // console.log(solution(str));
 
-//
-//// // 자리수의 합 , 동일 시 원래 숫자 중 큰 숫자
+// 자리수의 합 , 동일 시 원래 숫자 중 큰 숫자
 // function solution(arr) {
 //   let answer,
 //     max = Number.MIN_SAFE_INTEGER;
 //   for (let x of arr) {
 //     // 짜르기 1
-//     // let sum = x
-//     //   .toString() // 스플릿을 위해 바꿔주고
-//     //   .split("") // 다 짤라주고
-//     //   .reduce((a, b) => a + Number(b), 0); // 각자리 더하는데 스트링으로 더해지니까 넘버로 더해줌
+//     let sum = x
+//       .toString() // 스플릿을 위해 바꿔주고
+//       .split("") // 다 짤라주고
+//       .reduce((a, b) => a + Number(b), 0); // 각자리 더하는데 스트링으로 더해지니까 넘버로 더해줌
 
 //     // 짜르기 2
 //     // let sum = 0,
@@ -709,4 +705,117 @@
 // }
 
 // let arr = [128, 460, 603, 40, 521, 137, 123];
+// console.log(solution(arr));
+
+// // 뒤집었을때 소수 구하기.
+// function isPrime(num) {
+//   if (num === 1) return false;
+//   for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+//     if (num % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// function solution(arr) {
+//   let answer = [];
+//   for (let x of arr) {
+//     // 뒤집는 방법 1
+
+//     let res = Number(x.toString().split("").reverse().join(""));
+//     // parseInt 대신 Number 화 시켜버리기
+
+//     // 뒤집는 방법 2
+//     // let res = 0;
+//     // while (x) {
+//     //   let t = x % 10;
+
+//     //   res = res * 10 + t;
+
+//     //   x = parseInt(x / 10);
+//     // }
+//     if (isPrime(res)) answer.push(res);
+//   }
+
+//   return answer;
+// }
+// let arr = [32, 55, 62, 20, 250, 370, 200, 3, 100];
+// console.log(solution(arr));
+
+// 실패코드
+// function solution(arr) {
+//   let answer = [];
+
+//   for (let x of arr) {
+//     let xReverse = x.toString().split("").reverse().join("");
+//     for (let i = 2; i <= Math.floor(Math.sqrt(parseInt(xReverse))); i++) {
+//       if (parseInt(xReverse) % i === 0) {
+//         null;
+//       } else answer.push(parseInt(xReverse));
+//     }
+//     // console.log("qqqqq", parseInt(xReverse));
+//   }
+
+//   return answer;
+// }
+
+// let arr = [32, 55, 62, 20, 250, 370, 200, 3, 100];
+// console.log(solution(arr));
+
+//
+//
+//// 뒤집었을때 소수 구하기.
+// function isPrime(num) {
+//   if (num === 1) return false;
+//   for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+//     // 여기서의 num 은 제곱근으로 바뀐 num임
+//     // N의 약수는 무조건 sqrt(N)의 범위에 존재한다.
+//     console.log(i);
+//     if (num % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// function solution(arr) {
+//   let answer = [];
+//   for (let x of arr) {
+//     // 뒤집는 방법 1
+
+//     let res = Number(x.toString().split("").reverse().join(""));
+//     // parseInt 대신 Number 화 시켜버리기
+
+//     // 뒤집는 방법 2
+//     // let res = 0;
+//     // while (x) {
+//     //   let t = x % 10;
+
+//     //   res = res * 10 + t;
+
+//     //   x = parseInt(x / 10);
+//     // }
+//     if (isPrime(res)) answer.push(res);
+//   }
+
+//   return answer;
+// }
+// let arr = [32, 55, 62, 20, 250, 370, 200, 3, 100];
+// console.log(solution(arr));
+
+// 실패코드
+// function solution(arr) {
+//   let answer = [];
+
+//   for (let x of arr) {
+//     let xReverse = x.toString().split("").reverse().join("");
+//     for (let i = 2; i <= Math.floor(Math.sqrt(parseInt(xReverse))); i++) {
+//       if (parseInt(xReverse) % i === 0) {
+//         null;
+//       } else answer.push(parseInt(xReverse));
+//     }
+//     // console.log("qqqqq", parseInt(xReverse));
+//   }
+
+//   return answer;
+// }
+
+// let arr = [32, 55, 62, 20, 250, 370, 200, 3, 100];
 // console.log(solution(arr));
