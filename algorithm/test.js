@@ -1,8 +1,20 @@
-function solution(arr) {
+function solution(n, k, card) {
   let answer;
-
-  return answer;
+  let tmp = new Set();
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        tmp.add(card[i] + card[j] + card[k]);
+      }
+    }
+    let a = Array.from(tmp).sort((a, b) => b - a);
+    answer = a[k - 1];
+    return answer;
+  }
 }
+let card = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
 
-let arr = [];
-console.log(solution(arr));
+console.log(solution(10, 3, card));
+
+// 중복 x
+// set에 자료를 추가하는거 .add()
