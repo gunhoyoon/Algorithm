@@ -822,7 +822,7 @@
 
 //
 //
-// 완전 탐색 / 브루탈포스 / 멘토링
+////완전 탐색 / 브루탈포스 / 멘토링
 // function solution(arr) {
 //   let answer = 0;
 
@@ -837,9 +837,11 @@
 //       let cnt = 0; // k번의 테스트가 다 실행되고 cnt === testTotal 비교까지 다 됐다면 초기화
 
 //       for (let k = 0; k < testTotal; k++) {
+//         // 각 테스트
 //         let pi = (pj = 0);
 
 //         for (let s = 0; s < studentTotal; s++) {
+//           // 각 테스트에서의 등수
 //           if (arr[k][s] === i) pi = s;
 
 //           if (arr[k][s] === j) pj = s;
@@ -861,10 +863,10 @@
 // ];
 // console.log(solution(arr));
 
-// 점수가 인덱스임 낮을수록 잘본게 맞음
+// //점수가 인덱스임 낮을수록 잘본게 맞음
 
-// 이게 헷갈렸던 이유는 머릿속으로 4중 포문이 돌아가는걸 다 생각하려고 해서 그럼
-// i j / k s 따로따로 돌아간다고 생각해보면
+// //이게 헷갈렸던 이유는 머릿속으로 4중 포문이 돌아가는걸 다 생각하려고 해서 그럼
+// //i j / k s 따로따로 돌아간다고 생각해보면
 
 // 총 4명의 학생이 각각 멘토 , 멘티가 될 경우의 수 16가지의 경우의 수가 있지만
 // 거기서 본인 스스로가 멘토 멘티 되는 경우를 제외할거임 일단 포함시켜서 for문을 다 돌거임
@@ -877,7 +879,7 @@
 // 3     3
 // 4     4
 
-//// 정해진 금액(m) 내에서 최대로 살 수 있는 상품(product)의 갯수 / 완전 탐색(브루탈 포스)
+// 정해진 금액(m) 내에서 최대로 살 수 있는 상품(product)의 갯수 / 완전 탐색(브루탈 포스)
 // function solution(m, product) {
 //   let answer = 0;
 
@@ -928,3 +930,84 @@
 //   [10, 3],
 // ];
 // console.log(solution(28, product));
+
+//
+//
+// k번째 큰 수 구하기
+// function solution(n, k, arr) {
+//   let answer;
+//   let tmp = new Set(); // Set 특성상 중복된 값은 들어가지 않음 , 3중 포문을 돌때 중복된 값을 제거해줌
+//   for (let i = 0; i < n - 2; i++) {
+//     // 3장을 뽑아 각 카드의 합한 값
+//     for (let j = i + 1; j < n - 1; j++) {
+//       for (let k = j + 1; k < n; k++) {
+//         tmp.add(arr[i] + arr[j] + arr[k]); // set에 추가하는 메소드가 add
+//         // 3장을 뽑아 합한 값중 k번째인 수를 구하는거니까 다 더해줌
+//       }
+//     }
+//   }
+//   let a = Array.from(tmp).sort((a, b) => b - a);
+//   answer = a[k - 1]; // k번째 값을 구하는거임 , 해당 값을 구해야하니 index = length - 1  이므로 -1 해줌.
+//   return answer;
+// }
+// let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+// console.log(solution(10, 3, arr));
+
+// // Array.from() 메서드는 유사 배열 객체(array-like object)나
+// // 반복 가능한 객체(iterable object)를 얕게 복사해 새로운Array 객체를 만듭니다
+
+//
+//// 작은 순서대로 두 배열 합치기 / 시간복잡도 / 투 포인터 알고리즘 기초
+// function solution(arr1, arr2) {
+//   let answer = [];
+//   let n = arr1.length;
+//   let m = arr2.length;
+
+//   let p1 = (p2 = 0);
+//   // 각 배열의 인덱스를 각각 집어주는거임
+//   while (p1 < n && p2 < m) {
+//     // n , m 까지 반복 (둘다 끝나지 않았다면)  이라는 뜻도 있음
+//     if (arr1[p1] <= arr2[p2]) answer.push(arr1[p1++]);
+//     // 작은 쪽 푸시를 하고 ++은 그 이후에 해주는거임
+//     else answer.push(arr2[p2++]);
+//     // arr[p1] = 0 부터 시작 / arr1 <= arr2 작거나 같다면 작은 수 , 배열에 푸시해주기
+//     // 둘 중 하나의 배열이 끝나면 false로 종료,
+//   }
+//   while (p1 < n) answer.push(arr1[p1++]);
+
+//   while (p2 < m) answer.push(arr2[p2++]);
+//   // n또는 m보다 작으면 아직 그 배열이 끝나지 않았다는거고 , 푸시 , 증가 해줌 그대로 이어붙이는거임
+//   return answer;
+// }
+// let arr1 = [1, 3, 5];
+// let arr2 = [2, 3, 6, 7, 9];
+// console.log(solution(arr1, arr2));
+
+// // 정렬 자체를 sort로도 할 수 있다고 생각하는데, 여기선 사용하지 않을거다.
+// // 그 이유는 sort의 시간복잡도는 NlogN 이다.
+
+// // 우리가 할 while 문 시간복잡도는 O(n+m) 의 시간복잡도가 된다.
+
+//
+//
+// // 공통 원소 오름차순으로 출력하기 / 교집합 찾기
+// function solution(arr1, arr2) {
+//   let answer = [];
+//   arr1.sort((a, b) => a - b);
+//   arr2.sort((a, b) => a - b);
+//   // 각자 내림 차순
+//   let p1 = (p2 = 0); // 인덱스로 쓸 포인터 초기화
+//   while (p1 < arr1.length && p2 < arr2.length) {
+//     if (arr1[p1] === arr2[p2]) {
+//       // 같은 수라면
+//       answer.push(arr1[p1++]); // 푸시 , p1++ , p2++
+//       p2++;
+//     } else if (arr1[p1] < arr2[p2]) p1++; // p1이 작다면 p1++ 다음 인덱스탐색
+//     else p2++; // p2가 작다면 p2++ 다음 인덱스 탐색
+//   }
+
+//   return answer;
+// }
+// let arr1 = [1, 3, 9, 5, 2];
+// let arr2 = [3, 2, 5, 7, 8];
+// console.log(solution(arr1, arr2));
