@@ -1011,3 +1011,66 @@
 // let arr1 = [1, 3, 9, 5, 2];
 // let arr2 = [3, 2, 5, 7, 8];
 // console.log(solution(arr1, arr2));
+
+//
+//
+//
+// 연속부분수열 / 투 포인터 알고리즘
+// function solution(m, arr) {
+//   let answer = 0,
+//     sum = 0,
+//     lt = 0; // 포인터를 두개 잡아야하는데 , 이중 포문을 안쓸거기때문에 변수 lt
+//   // lt가 증가할때마다 sum이 작아지는 구조
+//   for (let rt = 0; rt < arr.length; rt++) {
+//     // rt가 증가할때마다 sum이 늘어나는 구조
+//     sum += arr[rt]; // 하나씩 돌면서 sum에 누적됨
+//     if (sum === m) answer++; // rt값이 늘어났으니 m과 비교해서 확인해봄
+//     while (sum >= m) {
+//       // sum 이 m보다 크거나 같을 경우니까 그전까진 false로 그냥 지나감
+//       sum -= arr[lt++]; // 크다면 줄여줘야하니 lt를 증가시켜줘야함
+//       if (sum === m) answer++; // lt의 값에 변동이 있었으니 또 확인
+//     }
+//   }
+
+//   return answer;
+// }
+
+// let arr = [1, 2, 1, 3, 1, 1, 1, 2];
+// console.log(solution(6, arr));
+
+//
+//
+//// 투 포인터 알고리즘 배열 합이 M이하로 되는 경우가  총 몇번인지 ? 밀땅밀땅
+// function solution(m, arr) {
+//   let answer = 0,
+//     sum = 0,
+//     lt = 0;
+//   for (let rt = 0; rt < arr.length; rt++) {
+//     sum += arr[rt];
+//     // 1           0
+//     // 4           1
+//     // 5           2
+//     // 7           3
+//     // 6           4
+
+//     // rt값이 연속부분수열의 맨끝이다.
+//     // 처음 rt만 움직이고 lt는 고정인 상태.
+//     // 하나씩 늘리면서 sum이 m보다 커질 경우에 while문 거치는거임
+//     while (sum > m) {
+//       7 / 6;
+//       // sum이 m보다 클 경우에만 동작함
+//       sum -= arr[lt++];
+//     }
+//     answer += rt - lt + 1;
+//     // 1
+//     // 3
+//     // 6
+//     // 8
+//     // 10
+//     // answer = answer + (rt - lt + 1)
+//     // 인덱스랑 그 값을 잘 구분하자
+//   }
+//   return answer;
+// }
+// let a = [1, 3, 1, 2, 3];
+// console.log(solution(5, a));
