@@ -1,38 +1,38 @@
-// // 슬라이딩 윈도우 , for문 2개 , 시간복잡도 O(n)
-// function solution(k, arr) {
-//   let answer,
-//     sum = 0;
-//   for (let i = 0; i < k; i++) {
-//     sum += arr[i]; // 첫번째 포문 : k까지 돌아서 1~3의 누적값 일단 구함
-//     answer = sum; // answer에 바로 할당
-//   }
-//   for (let i = k; i < arr.length; i++) {
-//     // i는 k부터 시작
-//     sum += arr[i] - arr[i - k];
-//     // 인덱스가 하나씩 증가하면서 추가된 값과 이전 값을 뺀 값을 sum에 더 해줌
-//     // arr[3] = 20 - arr[3-3 = 0] = 12 / 20 - 12 = 8
-//     // 기존 sum(36) + 8 = 46 = sum(46)
-//     answer = Math.max(answer, sum); // 처음에 할당한 38 , 46 비교
-//     // answer = 할당
-//   }
-//   return answer;
-// }
-
-// let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
-// console.log(solution(3, a));
-
-function solution(k, arr) {
-  let answer = 0,
-    sum = 0;
-  for (let i = 0; i < k; i++) {
-    sum += arr[i];
+// 학급 회장 / Hash Map
+function solution(s) {
+  let answer = "";
+  let sh = new Map();
+  for (let x of s) {
+    if (sh.has(x)) sh.set(x, sh.get(x) + 1);
+    // has(x) - x의 요소안에 key가 있는지 ? 불리언으로 반환
+    else sh.set(x, 1);
   }
-
-  for (let i = k; i < arr.length; i++) {
-    sum += arr[i] - arr[i - k];
-    answer = Math.max(answer, sum);
+  // sh 내부
+  // 0 {"B" => 3}
+  // 1 {"A" => 3}
+  // 2 {"C" => 5}
+  // 3 {"D" => 2}
+  // 4 {"E" => 2}
+  // key = "B" 등 , val = 3 등 이런식으로 할당되는거임
+  let max = Number.MIN_SAFE_INTEGER;
+  for (let [key, val] of sh) {
+    // console.log(key, val);
+    if (val > max) {
+      max = val; // max , val 투표 숫자임.
+      answer = key; // 그 투표를 받은 C 라는 key가 answer로 들어가야함
+    }
   }
   return answer;
 }
-let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
-console.log(solution(3, a));
+let s = "BACBACCACCBDEDE";
+console.log(solution(s));
+
+// Map , Set 찾아놓은거 여러번 보고 익히기
+
+// new Map() – 맵을 만듭니다.
+// map.set(key, value) – key를 이용해 value를 저장합니다.
+// map.get(key) – key에 해당하는 값을 반환합니다. key가 존재하지 않으면 undefined를 반환합니다.
+// map.has(key) – key가 존재하면 true, 존재하지 않으면 false를 반환합니다.
+// map.delete(key) – key에 해당하는 값을 삭제합니다.
+// map.clear() – 맵 안의 모든 요소를 제거합니다.
+// map.size – 요소의 개수를 반환합니다.
