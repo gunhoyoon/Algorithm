@@ -1150,3 +1150,32 @@
 // // map.clear() – 맵 안의 모든 요소를 제거합니다.
 // // map.size – 요소의 개수를 반환합니다.
 // // 맵 + 해시 알고리즘 자체가 해시맵이다
+
+//
+//
+// 아나그램 (Hash + Map)// // 아나그램 // 해쉬 + 맵
+// // 2개이상의 문자열을 알파벳의 나열 순서는 다르지만 그 구성이 일치하면 두 단어를 아나그램이라고 한다
+
+// function solution(str1, str2) {
+//   let answer = "YES";
+//   let sh = new Map();
+//   for (let x of str1) {
+//     if (sh.has(x)) sh.set(x, sh.get(x) + 1);
+//     else sh.set(x, 1);
+//   }
+//   // A 를 통과한 뒤 || B 실행
+//   for (let x of str2) {
+//     if (!sh.has(x) || sh.get(x) === 0) return "NO";
+//     // A 조건 통과 후 || B조건 실행 / 둘다 통과 시 각자 지워준다
+//     sh.set(x, sh.get(x) - 1);
+//     // 각 문자의 갯수까지 확인해서 계산
+//   }
+//   return answer;
+// }
+
+// let a = "AbaAeCe";
+// let b = "baeeACA";
+// console.log(solution(a, b));
+// map 메소드 잘 사용하고 값 저장해서 불러오기 , 비교하기
+
+// // 어떻게 매칭이 되나 싶었지만 기존에 sh에 들어가게 위에서 설정해놨기 떄문에 매치가 되는거였음
