@@ -1224,3 +1224,117 @@
 // let a = "bacaAacba";
 // let b = "abc";
 // console.log(solution(a, b));
+
+//
+// 올바른 문자열 (스택)
+// // function solution(s) {
+//   let answer = "YES";
+//   stack = [];
+//   for (let x of s) {
+//     if (x === "(") stack.push(x); // 여는 괄호시 스택에 추가
+//     else {
+//       if (stack.length === 0) return "NO";
+//       // 닫으려고 봤더니 없다 그러니까 여는 괄호가 안들어간 상태에서 닫는다면 "NO"
+//       stack.pop(); // 있다면 pop 해줌
+//     }
+//   }
+//   if (stack.length > 0) return "NO";
+//   //  다 하고 나면 스택이 비워져야하는데 만약 1이라도 남아있다 하면 NO
+//   return answer;
+// }
+// let a = "()()()()()()";
+// console.log(solution(a));
+
+//
+//// // 괄호 문자 제거 (스택)
+// function solution(s) {
+//   let answer = "";
+//   stack = [];
+
+//   for (let x of s) {
+//     if (x === ")") {
+//       // 순회중 ")"얘를 만났다면
+//       while (stack.pop() !== "("); // "(" 를 만나기전까지의 친구들은 다 지워준다.
+//     } else stack.push(x); // while이 false가 되면 다 지웠따는거니까 push
+//   }
+//   answer = stack.join(""); // 문자열로 바꿔주고 할당
+//   return answer;
+// }
+// let a = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+// console.log(solution(a));
+
+//
+//
+// // 크레인 인형 뽑기(스택) 카카오 / 이차원 배열
+// function solution(board, moves) {
+//   let answer = 0;
+//   let stack = [];
+//   moves.forEach((pos) => {
+//     // pos 로 moves 순회
+//     for (let i = 0; i < board.length; i++) {
+//       // i 로 board 순회
+//       if (board[i][pos - 1] !== 0) {
+//         // pos -1 을 해주는 이유는 moves 배열의 값을 인덱스로 접근하기 때문임
+//         // board[0][pos -1 = 0] 0이 아니라면
+
+//         let tmp = board[i][pos - 1];
+//         // tmp에 담는다
+
+//         board[i][pos - 1] = 0;
+//         // 담은 후에 0으로 그 자리를 0으로 만든다
+//         if (tmp === stack[stack.length - 1]) {
+//           // 담긴 tmp가   stack의 가장 최근 값과 같다면
+//           stack.pop();
+//           // stack의 최신값을 pop해준다.
+//           answer += 2;
+//           // 같은거 2개가 터지므로 answer+=2 해줌
+//         } else stack.push(tmp);
+//         // 다르다면 stack에 tmp 값을 넣어준다
+//         break;
+//         // 한번씩 로직이 돌았으면 pos가 다음 열을 탐색해야하는데
+//         // break를 걸어주지 않으면 그 열을 다 끝내고 난 뒤에 도니까 한번씩 break 걸어줘야함
+//       }
+//     }
+//   });
+//   return answer;
+// }
+
+// let a = [
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 1, 0, 3],
+//   [0, 2, 5, 0, 1],
+//   [4, 2, 4, 4, 2],
+//   [3, 5, 1, 3, 1],
+// ];
+// let b = [1, 5, 3, 5, 1, 2, 1, 4];
+// console.log(solution(a, b));
+
+//
+//
+// 후위식 연산 352+*9- // 37*9- 219- // 12 // 스택 / 타입주의 / 변수 lt rt 연산
+// function solution(str) {
+//   let answer;
+//   let stack = [];
+
+//   for (let x of str) {
+//     if (!isNaN(x)) stack.push(Number(x));
+//     // 숫자가 아니냐에 !을 걸어줬으니 숫자가 맞냐 로 바뀜
+//     // 문자열이 그대로 넘어온거기때문에 연산을 하려면 Number 타입으로 바꿔줘야함
+//     // type 고려 ++
+//     else {
+//       let rt = stack.pop(); // pop 제거 + 값 가져오기
+//       let lt = stack.pop();
+//       if (x === "+") stack.push(lt + rt);
+//       // 여기서의 연산은 이미 타입이 바뀐채로 push 됐으므로 상관없음
+//       else if (x === "-") stack.push(lt - rt);
+//       else if (x === "*") stack.push(lt * rt);
+//       else if (x === "/") stack.push(lt / rt);
+//     }
+//   }
+//   answer = stack[0];
+
+//   return answer;
+// }
+
+// let str = "352+*9-";
+// console.log(solution(str));
