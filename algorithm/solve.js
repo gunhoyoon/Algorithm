@@ -1338,3 +1338,63 @@
 
 // let str = "352+*9-";
 // console.log(solution(str));
+
+//
+//
+// 쇠막대기 (스택) // 문제를 이렇게 사고할 수 있는게 중요함
+// //www.acmicpc.net/problem/10799 문제
+
+// function solution(s) {
+//   let answer = 0;
+//   let stack = []; // 스택만들기
+
+//   for (let i = 0; i < s.length; i++) {
+//     // 문자열 인덱스 갖고 돌기
+//     if (s[i] === "(") stack.push(s[i]);
+//     // s[i]의 값이 === 시작이라면 . 일단 스택에 푸시
+//     else {
+//       // 아니라면 ")" 임
+//       stack.pop(); // 그럴때 스택 맨위값 제거 + 가져오기(가져오는건 딱히 의미x)
+//       if (s[i - 1] === "(") {
+//         // ) 인 상태에서 이전 값이 ( 얘라면
+//         // ()가 되는거니 터지고 기존 스택에 쌓인 만큼 더해줌 레이저가 자른거니까
+//         answer += stack.length;
+//       } else answer += 1; // 아니라면 끝 막대기 이므로 +1
+//     }
+//   }
+
+//   return answer;
+// }
+// let a = "()(((()())(())()))(())";
+// console.log(solution(a));
+
+//
+//
+// 공주구하기 (큐)
+// // 먼저 들어온 데이터가 먼저 나가는 구조. 새치기 안됨
+// function solution(n, k) {
+//   let answer;
+//   let queue = Array.from({ length: n }, (v, i) => i + 1);
+//   // {length: n} length:n 의 빈 배열이 생김 , (v, i)value , index value => i + 1 인덱스 + 1 만큼의 값을 할당
+//   while (queue.length) {
+//     // 0 = false // while = false 까지 계속 돔
+//     for (let i = 1; i < k; i++) queue.push(queue.shift());
+//     // k가 3 이라는 건 인덱스의 3번째가 아니라 1~8까지 왕자중에 왕자3이 간다는거임 즉 벨류 3임
+//     // queue.push(queue.shift()) = 처음 동작 시 queue.shift() = 1 뺀걸 푸시하겠다는거임 1을 맨뒤로 보냄
+//     queue.shift();
+//     // 포문이 false가 되는 순간 얘 실행 걍 빼버림 얘는
+//     // 인덱스때문에 빠지는게 아님 이미 1과 2가 빠져버렸기 때문에 다음 코드 실행이 shift인거임
+//     // 이 코드가 실행되는 순간 와일문으로 다시 돌아감 => 즉 포문도 다시 실행 i=1로 할당 / 반복
+//     if (queue.length === 1) answer = queue.shift();
+//     // 돌고 돌다 queue.length ===1 이 라는건 마지막애가 남았다는거임 걔를 뽑아서 answer에 주면 됨
+//   }
+//   return answer;
+// }
+// console.log(solution(8, 3));
+
+// // Array.from은
+// // 유사 배열 객체(array - like object)나 반복 가능한 객체(iterable object)를 얕게 복사해
+// // 새로운Array 객체를 만듭니다. (배열 형태임)
+// // v = value , i = index / i+1 증가하는 인덱스에 +1을 더 해줌 제 자리에 값이 들어가게 함
+
+// // shift() 메서드는 배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환합니다. 이 메서드는 배열의 길이를 변하게 합니다.
