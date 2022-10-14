@@ -1430,3 +1430,81 @@
 // // 필수과목 안의 값과 plan 를 x중 가장 앞에 값을 뽑아서 비교힘 // 다르다면 NO리턴
 // // 만약 저걸 다 통과한다면 그대로 YES 출력인데,
 // // 다 돌고 난 후 queue.length가 1 이상이라면 x(필수과목) 값이 다 빠진게 아니니까 NO 리턴
+
+//
+//
+// 선택 정렬
+// // idx = i 의 값을 넣고
+// // j 포문이 돌면서 가장 작은 값을 idx = j 이 식으로 넣어줌
+
+// function solution(arr) {
+//   let answer = arr;
+//   // 참조를 해주니까 arr의 값이 변하면 answer의 값도 변함
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let idx = i;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[j] < arr[idx]) idx = j;
+//     }
+//     [arr[i], arr[idx]] = [arr[idx], arr[i]];
+//   }
+
+//   return answer;
+// }
+
+// let arr = [13, 5, 11, 7, 23, 15];
+// console.log(solution(arr));
+
+//
+//
+// 버블 정렬 바로 옆의 숫자외 비교해서 맨 뒤로 보내고
+// // 그 다음에 쭉 비교해서 뒤로 보내고
+// // 쭉 뒤로 보내는 방법 // 구현은 가장 간단하지만 가장 비효율적임
+// function solution(arr) {
+//   let answer = arr;
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     for (let j = 0; j < arr.length - 1 - i; j++) {
+//       // j가 돌면서 비교해나가는거임
+//       // arr.length - 1 - i 번째 까지 도는 이유는 마지막 인덱스가 채워지면
+//       // 다음 순회때는 거기까지 할 필요가 없기 때문임
+//       if (arr[j] > arr[j + 1]) {
+//         // ex) 13 > 5 랑 비교해서 0번째 13이 더 클 경우 자리 바꿔줌
+//         // 그 다음은 13 이랑 11 비교 , 자리바뀌니까 13이랑 7비교
+//         // 그런식으로 쭉쭉 바꿔나가서 마지막 자리 채워주고
+//         // 다음 i 인덱스 1증가하니 그 전까지 j포문이 돌거임
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+//       }
+//     }
+//   }
+//   return answer;
+// }
+
+// let a = [13, 5, 11, 7, 23, 15];
+// console.log(solution(a));
+
+//
+//
+//
+// 버블정렬응용 / 음의 정수 양의 정수 기존 순서 변화없이
+// 양과 음으로만 정렬하기
+// 옆의 수와 비교해서 쭉쭉 밀고 나가는거
+
+// function solution(arr) {
+//   let answer = arr;
+
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     for (let j = 0; j < arr.length - i - 1; j++) {
+//       if (arr[j] > 0 && arr[j + 1] < 0) {
+//         // 둘다 음수 , 양수 일 경우를 방지해서 자리를 변경
+//         // 음수 양수는 어차피 바뀌어야하니까 비교대상이 돼도 상관없음
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+//       }
+//     }
+//   }
+
+//   return answer;
+// }
+
+// let a = [1, 3, 2, -3, -2, 5, 6, -5];
+
+// console.log(solution(a));
