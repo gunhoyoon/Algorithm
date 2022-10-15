@@ -1482,7 +1482,7 @@
 // let a = [13, 5, 11, 7, 23, 15];
 // console.log(solution(a));
 
-//
+// //
 //
 //
 // 버블정렬응용 / 음의 정수 양의 정수 기존 순서 변화없이
@@ -1506,5 +1506,32 @@
 // }
 
 // let a = [1, 3, 2, -3, -2, 5, 6, -5];
+
+// console.log(solution(a));
+
+//
+//
+//// // 삽입정렬 / 시간복잡도 N^2 = 버블 정렬 = 선택 정렬 과 같음
+// // 작은 수를 앞으로 삽입시키면서 정렬
+// function solution(arr) {
+//   let answer = arr;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let tmp = arr[i], //현재 arr[i] 값 11 을 tmp에 넣음
+//       j; // arr[j+1] 스코프때문에 j 못 읽어오니까 한 단계 위에서 선언
+
+//     for (let j = i - 1; j < 0; j--) {
+//       // i-1 부터 시작해 0까지 i 앞에 있는 값 탐색
+//       if (arr[j] > tmp) arr[j + 1] = arr[j];
+//       //
+//       else break;
+//     }
+//     arr[j + 1] = tmp;
+//   }
+
+//   return answer;
+// }
+
+// let a = [11, 7, 5, 6, 10, 9];
 
 // console.log(solution(a));
