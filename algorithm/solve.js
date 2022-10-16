@@ -1517,10 +1517,10 @@
 //   let answer = arr;
 
 //   for (let i = 0; i < arr.length; i++) {
-//     let tmp = arr[i], //현재 arr[i] 값 11 을 tmp에 넣음
-//       j; // arr[j+1] 스코프때문에 j 못 읽어오니까 한 단계 위에서 선언
+//     let tmp = arr[i]; //현재 arr[i] 값 11 을 tmp에 넣음
+//     // arr[j+1] 스코프때문에 j 못 읽어오니까 한 단계 위에서 선언
 
-//     for (let j = i - 1; j < 0; j--) {
+//     for (j = i - 1; j >= 0; j--) {
 //       // i-1 부터 시작해 0까지 i 앞에 있는 값 탐색
 //       if (arr[j] > tmp) arr[j + 1] = arr[j];
 //       //
