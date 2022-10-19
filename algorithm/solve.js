@@ -1626,21 +1626,21 @@
 
 //
 //좌표 정렬(sort)
+// 좌표를 정렬하는데의 정렬 기준은 x값에 의해서 먼저 정렬하고 x값이 서로 동일할 경우 y값에 의해서 정렬
 // function solution(arr) {
 //   let answer = arr;
 //   arr.sort((a, b) => {
-//     if (a[0] === b[0]) return a[1] - a[1]; // y축으로 정렬
-//     else return a[0] - a[0]; // x 축으로 정렬
-//   });
+//     if (a[0] === b[0]) return a[1] - b[1];
+//     else return a[0] - b[0];
 
 //   return answer;
 // }
 
 // let arr = [
-//   [1, 2],
-//   [1, 3],
-//   [2, 5],
 //   [2, 7],
+//   [1, 3],
+//   [1, 2],
+//   [2, 5],
 //   [3, 6],
 // ];
 
