@@ -1,30 +1,30 @@
-// 회의실 배정
-
-function solution(meeting) {
-  let answer = 0;
-  meeting.sort((a, b) => {
-    if (a[1] === b[1]) return a[0] - b[0];
-    else return a[1] - b[1];
-    // y가 같으면 x로 정렬한다 / 다르면 y로 정렬한다
-    // 이 코드가 있어야 y가 같은 경우도 정확하게 찍힘
+// 어떤 시간에 겹치는 최대 인원
+// 두번째 파라미터에 달하는 순간 없는 걸로 침
+function solution(times) {
+  let answer = Number.MIN_SAFE_INTEGER;
+  let T_line = [];
+  for (let x of times) {
+    T_line.push([x[0], "s"]);
+    T_line.push([x[1], "e"]);
+  }
+  T_line.sort((a, b) => {
+    if (a[0] === b[0]) return a[1].charCodeAt() - b[1].charCodeAt();
+    // 아스키코드 상 s가 e보다 큼
+    else return a[0] - b[0];
   });
-
-  let et = 0;
-  for (let x of meeting) {
-    if (x[0] >= et) {
-      answer++;
-      et = x[1];
-      // y축의 값 넣어주고 if문에서 x축의 값과 비교
-    }
+  let cnt = 0;
+  for (let x of T_line) {
+    if (x[1] === "s") cnt++;
+    else cnt--;
+    answer = Math.max(answer, cnt);
   }
   return answer;
 }
-
 let arr = [
-  [1, 4],
-  [2, 3],
-  [3, 5],
-  [4, 6],
-  [5, 7],
+  [14, 18],
+  [12, 15],
+  [15, 20],
+  [20, 30],
+  [5, 14],
 ];
 console.log(solution(arr));
