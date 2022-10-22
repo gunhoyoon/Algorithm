@@ -15,8 +15,12 @@ function solution(times) {
   let cnt = 0;
   for (let x of T_line) {
     if (x[1] === "s") cnt++;
+    // 들어왔다면 ++
     else cnt--;
+    // 아니라면 나갔다는거니가 --
     answer = Math.max(answer, cnt);
+    // answer와 cnt중 큰 값을 answer에 담아줌
+    // 카운터 된 cnt가 될거임
   }
   return answer;
 }
